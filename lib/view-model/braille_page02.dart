@@ -1,4 +1,7 @@
+import 'package:braille_alfabesi/model/classes.dart';
 import 'package:flutter/material.dart';
+
+import '../model/variables.dart';
 
 class BraillePage02 extends StatefulWidget {
   const BraillePage02({Key? key}) : super(key: key);
@@ -26,15 +29,14 @@ class _BraillePage02State extends State<BraillePage02> {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.only(top: 20),
+          padding: CustomPaddings().topPadding,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: CustomPaddings().horizontalPadding,
             child: Column(
               children: [
-                const Text(
-                    'Braille Dilinde Görmek İstediğiniz Harfi Aşağıdaki Boşluğa Yazınız'),
+                const Text(page02Title),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10),
+                  padding: CustomPaddings().topPadding,
                   child: TextField(
                     controller: textEditingController,
                     maxLength: 1,
@@ -42,7 +44,7 @@ class _BraillePage02State extends State<BraillePage02> {
                     keyboardType: TextInputType.text,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Harf Giriniz',
+                      labelText: page02TextFieldText,
                     ),
                   ),
                 ),
@@ -56,7 +58,7 @@ class _BraillePage02State extends State<BraillePage02> {
                         },
                       );
                     },
-                    child: const Text('Dönüştürmek için tıklayınız')),
+                    child: const Text(page02ButtonText)),
                 Visibility(
                   visible: _isVisible,
                   child: SizedBox(
@@ -64,8 +66,8 @@ class _BraillePage02State extends State<BraillePage02> {
                       width: 300,
                       child: Image.asset(
                           errorBuilder: (context, error, stackTrace) =>
-                              const Center(child: Text('Harf Giriniz')),
-                          'assets/brailleLetters/${textEditingController.text}.png')),
+                              const Center(child: Text(page02ErrorText)),
+                          'assets/brailleLettersLower/${textEditingController.text}.png')),
                 ),
               ],
             ),

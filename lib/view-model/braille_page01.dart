@@ -1,4 +1,6 @@
+import 'package:braille_alfabesi/model/classes.dart';
 import 'package:braille_alfabesi/model/lists.dart';
+import 'package:braille_alfabesi/model/variables.dart';
 import 'package:flutter/material.dart';
 
 class BraillePage01 extends StatefulWidget {
@@ -13,38 +15,51 @@ class _BraillePage01State extends State<BraillePage01> {
 
   @override
   Widget build(BuildContext context) {
-    const String title = 'BRAILLE ALFABESİ';
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Alfabe Page'),
+        title: const Text(page01AppBarTitle),
         actions: [
           IconButton(
               onPressed: () {}, icon: const Icon(Icons.question_mark_rounded))
         ],
       ),
-      body: Center(
-        child: Column(
-          children: [
-            _title(title),
-            Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Text('${alfabe[imageIndex]} HARFİ',
-                    style: const TextStyle(fontSize: 30))),
-            Center(
-              child: SizedBox(
-                width: 300,
-                height: 300,
-                child: itemImages[imageIndex],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Center(
+          child: Column(
+            children: [
+              _title(page01Title),
+              Padding(
+                  padding: CustomPaddings().topPadding,
+                  child: Text('${alfabe[imageIndex]} HARFİ',
+                      style: const TextStyle(fontSize: 30))),
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  height: 300,
+                  child: Image.asset(
+                      'assets/brailleLettersLower/${alfabeLower[imageIndex]}.png'),
+                  //child: itemImages[imageIndex],
+                ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                backButton(),
-                nextButton(),
-              ],
-            ),
-          ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Padding(
+                      padding: CustomPaddings().allPadding,
+                      child: backButton(),
+                    ),
+                    Padding(
+                      padding: CustomPaddings().allPadding,
+                      child: nextButton(),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -56,6 +71,7 @@ class _BraillePage01State extends State<BraillePage01> {
           setState(() {
             if (imageIndex < alfabe.length - 1) {
               imageIndex++;
+              print(alfabe[imageIndex].toUpperCase());
             }
           });
         },

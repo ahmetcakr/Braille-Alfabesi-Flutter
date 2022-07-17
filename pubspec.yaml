@@ -60,6 +60,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/brailleLetters/
+    - assets/brailleLettersLower/
+    - assets/brailleLetters/I.png
+    - assets/brailleLetters/i.png
     - assets/books-apple-png-Images-Free-Transparent.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
