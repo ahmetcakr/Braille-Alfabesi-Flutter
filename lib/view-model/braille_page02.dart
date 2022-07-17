@@ -33,14 +33,14 @@ class _BraillePage02State extends State<BraillePage02> {
               children: [
                 const Text(
                     'Braille Dilinde Görmek İstediğiniz Harfi Aşağıdaki Boşluğa Yazınız'),
-                const Padding(
-                  padding: EdgeInsets.only(top: 10),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
                   child: TextField(
-                    // controller: textEditingController,
+                    controller: textEditingController,
                     maxLength: 1,
                     textAlign: TextAlign.center,
                     keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Harf Giriniz',
                     ),
@@ -48,11 +48,13 @@ class _BraillePage02State extends State<BraillePage02> {
                 ),
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        if (_isVisible = true) {
-                          _isVisible = true;
-                        }
-                      });
+                      setState(
+                        () {
+                          if (_isVisible = true) {
+                            _isVisible = true;
+                          }
+                        },
+                      );
                     },
                     child: const Text('Dönüştürmek için tıklayınız')),
                 Visibility(
@@ -60,7 +62,10 @@ class _BraillePage02State extends State<BraillePage02> {
                   child: SizedBox(
                       height: 300,
                       width: 300,
-                      child: Image.asset('assets/brailleLetters/B.png')),
+                      child: Image.asset(
+                          errorBuilder: (context, error, stackTrace) =>
+                              const Center(child: Text('Harf Giriniz')),
+                          'assets/brailleLetters/${textEditingController.text}.png')),
                 ),
               ],
             ),
