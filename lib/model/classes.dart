@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MyIcons {
-  static const IconData alfabe = Icons.home;
-  static const IconData harf = Icons.settings;
-  static const IconData deneme = Icons.favorite;
-  static const IconData kelime = Icons.person;
+  static const IconData alfabe = Icons.abc_outlined;
+  static const IconData harf = Icons.text_format_outlined;
+  static const IconData deneme = Icons.circle_outlined;
+  static const IconData kelime = Icons.text_fields_rounded;
 }
 
 enum MyTabViews { alfabe, harf, deneme, kelime }

@@ -25,7 +25,7 @@ class _BraillePage02State extends State<BraillePage02> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Harf Page'),
+        title: const Text(page02AppBarTitle),
       ),
       body: Center(
         child: Padding(
