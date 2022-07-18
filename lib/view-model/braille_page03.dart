@@ -17,6 +17,219 @@ class _BraillePage03State extends State<BraillePage03> {
   bool _button05 = false;
   bool _button06 = false;
 
+  Text denemeHarfGoster() {
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == false &&
+        _button04 == false &&
+        _button05 == false &&
+        _button06 == false) {
+      return const Text('A');
+    }
+    if (_button01 == true &&
+        _button03 == true &&
+        _button04 == false &&
+        _button05 == false &&
+        _button06 == false &&
+        _button02 == false) {
+      return const Text('B');
+    }
+    if (_button01 == true &&
+        _button02 == true &&
+        _button04 == false &&
+        _button05 == false &&
+        _button06 == false &&
+        _button03 == false) {
+      return const Text('C');
+    }
+    if (_button01 == true &&
+        _button03 == false &&
+        _button04 == true &&
+        _button05 == false &&
+        _button06 == false &&
+        _button02 == true) {
+      return const Text('D');
+    }
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == false &&
+        _button04 == true &&
+        _button05 == false &&
+        _button06 == false) {
+      return const Text('E');
+    }
+    if (_button01 == true &&
+        _button02 == true &&
+        _button03 == true &&
+        _button04 == false &&
+        _button05 == false &&
+        _button06 == false) {
+      return const Text('F');
+    } // burada kaldı
+    if (_button01 == true &&
+        _button02 == true &&
+        _button03 == true &&
+        _button04 == true &&
+        _button05 == false &&
+        _button06 == false) {
+      return const Text('G');
+    }
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == true &&
+        _button04 == true &&
+        _button05 == false &&
+        _button06 == false) {
+      return const Text('H');
+    }
+    if (_button01 == false &&
+        _button02 == true &&
+        _button03 == true &&
+        _button04 == false &&
+        _button05 == false &&
+        _button06 == false) {
+      return const Text('I');
+    }
+    if (_button01 == false &&
+        _button02 == true &&
+        _button03 == true &&
+        _button04 == true &&
+        _button05 == false &&
+        _button06 == false) {
+      return const Text('J');
+    }
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == false &&
+        _button04 == false &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('K');
+    }
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == true &&
+        _button04 == false &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('L');
+    }
+    if (_button01 == true &&
+        _button02 == true &&
+        _button03 == false &&
+        _button04 == false &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('M');
+    }
+    if (_button01 == true &&
+        _button02 == true &&
+        _button03 == false &&
+        _button04 == true &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('N');
+    }
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == false &&
+        _button04 == true &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('O');
+    }
+    if (_button01 == true &&
+        _button02 == true &&
+        _button03 == true &&
+        _button04 == false &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('P');
+    }
+    if (_button01 == true &&
+        _button02 == true &&
+        _button03 == true &&
+        _button04 == true &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('Q');
+    }
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == true &&
+        _button04 == true &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('R');
+    }
+    if (_button01 == false &&
+        _button02 == true &&
+        _button03 == true &&
+        _button04 == false &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('S');
+    }
+    if (_button01 == false &&
+        _button02 == true &&
+        _button03 == true &&
+        _button04 == true &&
+        _button05 == true &&
+        _button06 == false) {
+      return const Text('T');
+    }
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == false &&
+        _button04 == false &&
+        _button05 == true &&
+        _button06 == true) {
+      return const Text('U');
+    }
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == true &&
+        _button04 == false &&
+        _button05 == true &&
+        _button06 == true) {
+      return const Text('V');
+    }
+    if (_button01 == false &&
+        _button02 == true &&
+        _button03 == true &&
+        _button04 == false &&
+        _button05 == true &&
+        _button06 == true) {
+      return const Text('W');
+    }
+    if (_button01 == true &&
+        _button02 == true &&
+        _button03 == false &&
+        _button04 == false &&
+        _button05 == true &&
+        _button06 == true) {
+      return const Text('X');
+    }
+    if (_button01 == true &&
+        _button02 == true &&
+        _button03 == false &&
+        _button04 == true &&
+        _button05 == true &&
+        _button06 == true) {
+      return const Text('Y');
+    }
+    if (_button01 == true &&
+        _button02 == false &&
+        _button03 == false &&
+        _button04 == true &&
+        _button05 == true &&
+        _button06 == true) {
+      return const Text('Z');
+    } else {
+      return const Text('Harf yok');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,9 +330,7 @@ class _BraillePage03State extends State<BraillePage03> {
                                     context: context,
                                     builder: (context) => AlertDialog(
                                           title: const Text('Harf'),
-                                          content:
-                                              DenemeHarfler(button1: _button02)
-                                                  .denemeHarfGoster(),
+                                          content: denemeHarfGoster(),
                                           actions: [
                                             TextButton(
                                               onPressed: () {
@@ -182,22 +393,4 @@ class DenemeHarfler {
     this.button5 = false,
     this.button6 = false,
   });
-
-  Text denemeHarfGoster() {
-    if (button1) {
-      return const Text('A');
-    } else if (button2) {
-      return const Text('B');
-    } else if (button3) {
-      return const Text('C');
-    } else if (button4) {
-      return const Text('D');
-    } else if (button5) {
-      return const Text('E');
-    } else if (button6) {
-      return const Text('F');
-    } else {
-      return const Text('Harf yok');
-    }
-  }
 }
