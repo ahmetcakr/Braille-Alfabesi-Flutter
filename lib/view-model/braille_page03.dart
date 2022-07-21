@@ -376,21 +376,3 @@ class _BraillePage03State extends State<BraillePage03> {
     );
   }
 }
-
-class DenemeHarfler {
-  bool button1;
-  bool button2;
-  bool button3;
-  bool button4;
-  bool button5;
-  bool button6;
-
-  DenemeHarfler({
-    this.button1 = false,
-    this.button2 = false,
-    this.button3 = false,
-    this.button4 = false,
-    this.button5 = false,
-    this.button6 = false,
-  });
-}

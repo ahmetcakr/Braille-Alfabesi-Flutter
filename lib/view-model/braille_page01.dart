@@ -2,6 +2,7 @@ import 'package:braille_alfabesi/model/classes.dart';
 import 'package:braille_alfabesi/model/lists.dart';
 import 'package:braille_alfabesi/model/variables.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class BraillePage01 extends StatefulWidget {
   const BraillePage01({Key? key}) : super(key: key);
@@ -11,6 +12,19 @@ class BraillePage01 extends StatefulWidget {
 }
 
 class _BraillePage01State extends State<BraillePage01> {
+  final BannerAd myBanner = BannerAd(
+    adUnitId: BannerAd.testAdUnitId,
+    size: AdSize.banner,
+    request: const AdRequest(),
+    listener: const BannerAdListener(),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    myBanner.load();
+  }
+
   int imageIndex = 0;
 
   @override
@@ -31,12 +45,15 @@ class _BraillePage01State extends State<BraillePage01> {
               _title(page01Title),
               Padding(
                   padding: CustomPaddings().topPadding,
-                  child: Text('${alfabe[imageIndex]} HARFİ',
-                      style: const TextStyle(fontSize: 30))),
+                  child: Text('${alfabe[imageIndex]}',
+                      style: const TextStyle(
+                          fontSize: 40,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold))),
               Center(
                 child: SizedBox(
-                  width: 300,
-                  height: 300,
+                  width: 350,
+                  height: 350,
                   child: Image.asset(
                       'assets/brailleLettersLower/${alfabeLower[imageIndex]}.png'),
                   //child: itemImages[imageIndex],
@@ -62,6 +79,11 @@ class _BraillePage01State extends State<BraillePage01> {
           ),
         ),
       ),
+      bottomSheet: SizedBox(
+        height: 50,
+        width: 500,
+        child: AdWidget(ad: myBanner),
+      ),
     );
   }
 
@@ -71,7 +93,6 @@ class _BraillePage01State extends State<BraillePage01> {
           setState(() {
             if (imageIndex < alfabe.length - 1) {
               imageIndex++;
-              print(alfabe[imageIndex].toUpperCase());
             }
           });
         },
@@ -96,7 +117,8 @@ class _BraillePage01State extends State<BraillePage01> {
   Padding _title(String title) {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
-      child: Text(title, style: const TextStyle(fontSize: 30)),
+      child: Text(title,
+          style: const TextStyle(fontSize: 30, fontFamily: 'Roboto')),
     );
   }
 }

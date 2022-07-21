@@ -1,5 +1,6 @@
 import 'package:braille_alfabesi/model/classes.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../model/variables.dart';
 
@@ -14,6 +15,19 @@ class _BraillePage02State extends State<BraillePage02> {
   bool _isVisible = false;
 
   final textEditingController = TextEditingController();
+
+  final BannerAd myBanner = BannerAd(
+    adUnitId: BannerAd.testAdUnitId,
+    size: AdSize.banner,
+    request: const AdRequest(),
+    listener: const BannerAdListener(),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    myBanner.load();
+  }
 
   @override
   void dispose() {
@@ -73,6 +87,11 @@ class _BraillePage02State extends State<BraillePage02> {
             ),
           ),
         ),
+      ),
+      bottomSheet: SizedBox(
+        height: 50,
+        width: 500,
+        child: AdWidget(ad: myBanner),
       ),
     );
   }
