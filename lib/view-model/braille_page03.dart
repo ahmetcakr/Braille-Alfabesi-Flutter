@@ -254,7 +254,9 @@ class _BraillePage03State extends State<BraillePage03> {
                             _button01 = !_button01;
                           });
                         },
-                        backgroundColor: _button01 ? Colors.black : Colors.grey,
+                        backgroundColor: _button01
+                            ? MyColors().selectedColor
+                            : MyColors().unselectedColor,
                       ),
                       FloatingActionButton(
                         onPressed: () {
@@ -262,7 +264,9 @@ class _BraillePage03State extends State<BraillePage03> {
                             _button02 = !_button02;
                           });
                         },
-                        backgroundColor: _button02 ? Colors.black : Colors.grey,
+                        backgroundColor: _button02
+                            ? MyColors().selectedColor
+                            : MyColors().unselectedColor,
                       ),
                     ],
                   ),
@@ -278,7 +282,9 @@ class _BraillePage03State extends State<BraillePage03> {
                             _button03 = !_button03;
                           });
                         },
-                        backgroundColor: _button03 ? Colors.black : Colors.grey,
+                        backgroundColor: _button03
+                            ? MyColors().selectedColor
+                            : MyColors().unselectedColor,
                       ),
                       FloatingActionButton(
                         onPressed: () {
@@ -286,7 +292,9 @@ class _BraillePage03State extends State<BraillePage03> {
                             _button04 = !_button04;
                           });
                         },
-                        backgroundColor: _button04 ? Colors.black : Colors.grey,
+                        backgroundColor: _button04
+                            ? MyColors().selectedColor
+                            : MyColors().unselectedColor,
                       ),
                     ],
                   ),
@@ -375,4 +383,9 @@ class _BraillePage03State extends State<BraillePage03> {
       ),
     );
   }
+}
+
+class MyColors {
+  Color selectedColor = Colors.black;
+  Color unselectedColor = Colors.grey;
 }

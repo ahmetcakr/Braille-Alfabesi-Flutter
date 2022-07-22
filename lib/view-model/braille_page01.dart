@@ -2,7 +2,6 @@ import 'package:braille_alfabesi/model/classes.dart';
 import 'package:braille_alfabesi/model/lists.dart';
 import 'package:braille_alfabesi/model/variables.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class BraillePage01 extends StatefulWidget {
   const BraillePage01({Key? key}) : super(key: key);
@@ -12,19 +11,6 @@ class BraillePage01 extends StatefulWidget {
 }
 
 class _BraillePage01State extends State<BraillePage01> {
-  final BannerAd myBanner = BannerAd(
-    adUnitId: BannerAd.testAdUnitId,
-    size: AdSize.banner,
-    request: const AdRequest(),
-    listener: const BannerAdListener(),
-  );
-
-  @override
-  void initState() {
-    super.initState();
-    myBanner.load();
-  }
-
   int imageIndex = 0;
 
   @override
@@ -78,11 +64,6 @@ class _BraillePage01State extends State<BraillePage01> {
             ],
           ),
         ),
-      ),
-      bottomSheet: SizedBox(
-        height: 50,
-        width: 500,
-        child: AdWidget(ad: myBanner),
       ),
     );
   }

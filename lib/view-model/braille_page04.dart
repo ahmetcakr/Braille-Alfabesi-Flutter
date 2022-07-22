@@ -86,7 +86,7 @@ class _BraillePage04State extends State<BraillePage04> {
                             child: Image.asset(
                                 errorBuilder: (context, error, stackTrace) =>
                                     const Center(child: Text(page04ErrorText)),
-                                'assets/brailleLettersLower/${_textEditingController.text[i]}.png'),
+                                'assets/brailleLettersLower/${_textEditingController.text[i].toLowerCase()}.png'),
                           )),
                         ),
                     ],

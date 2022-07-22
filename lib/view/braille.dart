@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../model/classes.dart';
 import '../view-model/braille_page01.dart';
@@ -14,32 +15,50 @@ class BrailleAlfabesi extends StatefulWidget {
 }
 
 class _BrailleAlfabesiState extends State<BrailleAlfabesi>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late final TabController _tabController;
-  final double _notchedValue = 10;
+  //final double _notchedValue = 10;
+  final BannerAd myBanner = BannerAd(
+    adUnitId: BannerAd.testAdUnitId,
+    size: AdSize.largeBanner,
+    request: const AdRequest(),
+    listener: const BannerAdListener(),
+  );
 
   @override
   void initState() {
     super.initState();
-    _tabController =
-        TabController(length: MyTabViews.values.length, vsync: this);
+    _tabController = TabController(
+      length: MyTabViews.values.length,
+      vsync: this,
+    );
+    myBanner.load(); // Load the Banner Ad
   }
 
   @override
+  // ignore: must_call_super
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: MyTabViews.values.length,
         child: Scaffold(
           bottomNavigationBar: BottomAppBar(
-            notchMargin: _notchedValue,
+            //notchMargin: _notchedValue,
             // notchMargin notch ekranının yukarısındaki boşluk
 
             // notch ekranının çerçevesi
             child: _MyTabBar(tabController: _tabController),
           ),
           body: _TabBarView(tabController: _tabController),
+          bottomSheet: SizedBox(
+            height: 100,
+            width: 500,
+            child: AdWidget(ad: myBanner),
+          ),
         ));
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 class _MyTabBar extends StatelessWidget {
@@ -87,6 +106,7 @@ class _TabBarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBarView(
+
         // physics: const NeverScrollableScrollPhysics(),
         // NeverScrollableScrollPhysics: scroll işlemi yapılmaz.
         controller: _tabController,
@@ -98,5 +118,3 @@ class _TabBarView extends StatelessWidget {
         ]);
   }
 }
-
-extension _MyTabViewExtension on MyTabViews {}
