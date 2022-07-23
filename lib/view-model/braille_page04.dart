@@ -59,7 +59,10 @@ class _BraillePage04State extends State<BraillePage04> {
                           },
                         );
                       },
-                      child: const Text(page04ButtonText)),
+                      child: const Text(page04ButtonText,
+                          style: TextStyle(
+                              fontSize: 18,
+                              decoration: TextDecoration.underline))),
                   ListView(
                     scrollDirection: Axis.vertical,
                     physics: const NeverScrollableScrollPhysics(),

@@ -17,7 +17,6 @@ class _BraillePage01State extends State<BraillePage01> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     GestureDetector().behavior;
   }
@@ -58,14 +57,10 @@ class _BraillePage01State extends State<BraillePage01> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: const [
-                                  Text('Braille Alfabesi Nedir ?',
+                                  Text(brailleAciklamaBaslik,
                                       textAlign: TextAlign.center),
                                   Text('\n\n', textAlign: TextAlign.center),
-                                  Text(
-                                      'Braille Alfabesi, Braille alfabesi veya Körler alfabesi;\n\n'
-                                      " 1821 yılında Louis Braille tarafından geliştirilmiş görme engelli insanların okuyup yazması için kullanılan bir alfabe yöntemidir.\n"
-                                      " İki kolon taşıyan dikdörtgen düzen üzerine dizilmiş altı kabartılmış noktadan oluşur. \n"
-                                      "Her iki kolonda üçer nokta bulunur. Noktalardan her biri altmışdört farklı kombinasyondan birini oluşturması için farklı şekillerde dizilir. ",
+                                  Text(brailleAciklama,
                                       textAlign: TextAlign.center),
                                 ],
                               ),
@@ -123,15 +118,16 @@ class _BraillePage01State extends State<BraillePage01> {
 
   OutlinedButton nextButton() {
     return OutlinedButton.icon(
-        onPressed: () {
-          setState(() {
-            if (imageIndex < alfabe.length - 1) {
-              imageIndex++;
-            }
-          });
-        },
-        icon: const Icon(Icons.arrow_forward),
-        label: const Text('Sonraki'));
+      onPressed: () {
+        setState(() {
+          if (imageIndex < alfabe.length - 1) {
+            imageIndex++;
+          }
+        });
+      },
+      label: const Text('Sonraki'),
+      icon: const Icon(Icons.arrow_forward),
+    );
   }
 
   OutlinedButton backButton() {
@@ -150,7 +146,7 @@ class _BraillePage01State extends State<BraillePage01> {
 
   Padding _title(String title) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
+      padding: CustomPaddings().topPadding,
       child: Text(title,
           style: const TextStyle(fontSize: 30, fontFamily: 'Roboto')),
     );

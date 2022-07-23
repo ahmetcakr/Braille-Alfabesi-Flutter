@@ -58,7 +58,10 @@ class _BraillePage02State extends State<BraillePage02> {
                         },
                       );
                     },
-                    child: const Text(page02ButtonText)),
+                    child: const Text(page02ButtonText,
+                        style: TextStyle(
+                            fontSize: 18,
+                            decoration: TextDecoration.underline))),
                 Visibility(
                   visible: _isVisible,
                   child: SizedBox(
