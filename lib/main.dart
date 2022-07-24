@@ -6,7 +6,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
-  runApp(const MyApp()); // AliDayı
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'Braille Alfabesi',
       theme: ThemeData.light().copyWith(
           tabBarTheme: TabBarTheme(
-            labelColor: Colors.black,
-            unselectedLabelColor: Colors.grey.withOpacity(0.5),
+            labelColor: Colors.blue,
+            unselectedLabelColor: Colors.black.withOpacity(0.5),
             indicatorSize: TabBarIndicatorSize.tab,
           ),
           bottomAppBarTheme: const BottomAppBarTheme(
