@@ -26,6 +26,8 @@ class _BraillePage01State extends State<BraillePage01> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(page01AppBarTitle),
+
+        // top-right question butto
         actions: [
           IconButton(
               onPressed: () {
@@ -45,6 +47,8 @@ class _BraillePage01State extends State<BraillePage01> {
                               },
                             ),
                           ],
+
+                          // show dialog contents
                           title: SizedBox(
                               height: 100,
                               width: 100,
@@ -71,12 +75,17 @@ class _BraillePage01State extends State<BraillePage01> {
               icon: const Icon(Icons.question_mark_rounded))
         ],
       ),
+
+      // BODY
+
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Center(
           child: Column(
             children: [
+              // title of the page01
               _title(page01Title),
+              // this shows the letters
               Padding(
                   padding: CustomPaddings().topPadding,
                   child: Text('${alfabe[imageIndex]}',
@@ -84,6 +93,7 @@ class _BraillePage01State extends State<BraillePage01> {
                           fontSize: 40,
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.bold))),
+              // this shows the image of letters
               Center(
                 child: SizedBox(
                   width: 350,
@@ -93,6 +103,9 @@ class _BraillePage01State extends State<BraillePage01> {
                   //child: itemImages[imageIndex],
                 ),
               ),
+
+              // back and next buttons
+
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
